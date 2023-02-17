@@ -25,7 +25,6 @@ public class LoginController extends HttpServlet {
         if (logoutRequest != null) {
             HttpSession session = request.getSession(false);
             if (session != null) {
-                System.out.println("Invalidate");
                 session.invalidate();
             }
             request.getRequestDispatcher("/login.jsp").forward(request, response);
@@ -41,7 +40,7 @@ public class LoginController extends HttpServlet {
         HttpSession session = request.getSession();
         session.setAttribute("supervisor", supervisor);
         // TODO: This is a temp path.
-        response.sendRedirect(request.getContextPath() + "/hello-servlet");
+        response.sendRedirect(request.getContextPath() + "/interns-list");
     }
 
     public void destroy() {

@@ -9,7 +9,7 @@
 <br/>
 
 <fieldset>
-    <legend>Login 2</legend>
+    <legend>Se connecter</legend>
     <form name='myForm' action='login' method="post">
         <label>Login :<input type='text' name='loginField' id="idLoginField" placeholder='Type your login here'></label><br/>
         <label>Password :<input type='password' name='pwdField' id="idPwdField"

@@ -19,6 +19,12 @@ public class SupervisorSB {
         return q.getResultList();
     }
 
+    public List<InternEntity> getInternsBySupervisorId(int supervisorId) {
+        Query q = em.createQuery("select i from InternEntity i where i.supervisorBySupervisorId.supervisorId = :supervisorId")
+                .setParameter("supervisorId", supervisorId);
+        return q.getResultList();
+    }
+
     public SupervisorEntity authenticate(String login, String password) {
         Query q = em.createQuery("select s from SupervisorEntity s where s.login = :login")
                 .setParameter("login", login);
