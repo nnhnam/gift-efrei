@@ -23,6 +23,8 @@ CREATE TABLE Internship
     is_oral_defense_done   BOOLEAN      NOT NULL,
     is_visit_planning_done BOOLEAN      NOT NULL,
     is_visit_done          BOOLEAN      NOT NULL,
+    note_tech              FLOAT,
+    note_com               FLOAT,
     company_id             INTEGER      REFERENCES Company (company_id)
 );
 
@@ -63,12 +65,12 @@ VALUES ('Group A'),
        ('Group D'),
        ('Group E');
 
-INSERT INTO Internship (description, manager_name, comment, start_date, end_date, is_report_done, is_oral_defense_done, is_visit_planning_done, is_visit_done, company_id)
-VALUES ('Software Development Internship', 'manager 1', NULL, '2022-06-01', '2022-12-01', false, false, false, false, 1),
-       ('Marketing Internship', 'manager 2', 'Great intern!', '2022-05-01', '2022-11-01', true, false, true, true, 2),
-       ('Engineering Internship', 'manager 3', NULL, '2022-06-01', '2022-12-01', true, true, true, true, 3),
-       ('Finance Internship', 'manager 4', 'Excellent communication skills', '2022-07-01', '2022-12-31', false, false, false, false, 4),
-       ('Human Resources Internship', 'manager 5', NULL, '2022-05-01', '2022-11-01', true, true, false, false, 5);
+INSERT INTO Internship (description, manager_name, comment, start_date, end_date, is_report_done, is_oral_defense_done, is_visit_planning_done, is_visit_done, note_tech, note_com, company_id)
+VALUES ('Software Development Internship', 'manager 1', NULL, '2022-06-01', '2022-12-01', false, false, false, false, NULL, 19, 1),
+       ('Marketing Internship', 'manager 2', 'Great intern!', '2022-05-01', '2022-11-01', true, false, true, true, 10, NULL, 2),
+       ('Engineering Internship', 'manager 3', NULL, '2022-06-01', '2022-12-01', true, true, true, true, NULL, NULL, 3),
+       ('Finance Internship', 'manager 4', 'Excellent communication skills', '2022-07-01', '2022-12-31', false, false, false, false, 15.0, 16.0, 4),
+       ('Human Resources Internship', 'manager 5', NULL, '2022-05-01', '2022-11-01', true, true, false, false, NULL, NULL, 5);
 INSERT INTO Supervisor (first_name, last_name, login, password_hash)
 VALUES ('Mark', 'Johnson', 'markj', '$2a$10$cFLcNs.CGibOy/UibemL3e1QugufdY8ae8lbGeUXpgY2FunZn8RSK'),
        ('Linda', 'Wang', 'lindaw', '$2a$10$cFLcNs.CGibOy/UibemL3e1QugufdY8ae8lbGeUXpgY2FunZn8RSK'),

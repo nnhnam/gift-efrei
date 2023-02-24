@@ -44,6 +44,12 @@ public class InternshipEntity {
     @ManyToOne
     @JoinColumn(name = "company_id", referencedColumnName = "company_id")
     private CompanyEntity companyByCompanyId;
+    @Basic
+    @Column(name = "note_tech", nullable = true, precision = 0)
+    private Double noteTech;
+    @Basic
+    @Column(name = "note_com", nullable = true, precision = 0)
+    private Double noteCom;
 
     public int getInternshipId() {
         return internshipId;
@@ -175,5 +181,21 @@ public class InternshipEntity {
 
     public void setCompanyByCompanyId(CompanyEntity companyByCompanyId) {
         this.companyByCompanyId = companyByCompanyId;
+    }
+
+    public Double getNoteTech() {
+        return noteTech;
+    }
+
+    public void setNoteTech(Double noteTech) {
+        this.noteTech = noteTech;
+    }
+
+    public Double getNoteCom() {
+        return noteCom;
+    }
+
+    public void setNoteCom(Double noteCom) {
+        this.noteCom = noteCom;
     }
 }
