@@ -27,7 +27,7 @@ public class InternsListController extends HttpServlet {
         }
         List<InternEntity> interns = supervisorSB.getInternsBySupervisorId(supervisor.getSupervisorId());
         request.setAttribute("interns", interns);
-        request.getRequestDispatcher("/interns.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/interns.jsp").forward(request, response);
     }
 
     public void destroy() {

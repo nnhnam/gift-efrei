@@ -17,7 +17,7 @@ public class LoginController extends HttpServlet {
     private SupervisorSB supervisorSB;
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/login.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -27,14 +27,14 @@ public class LoginController extends HttpServlet {
             if (session != null) {
                 session.invalidate();
             }
-            request.getRequestDispatcher("/login.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
             return;
         }
         String enteredLogin = request.getParameter("loginField");
         String enteredPassword = request.getParameter("pwdField");
         SupervisorEntity supervisor = supervisorSB.authenticate(enteredLogin, enteredPassword);
         if (supervisor == null) {
-            request.getRequestDispatcher("/login.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
             return;
         }
         HttpSession session = request.getSession();
