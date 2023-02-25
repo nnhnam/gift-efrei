@@ -39,7 +39,6 @@ public class LoginController extends HttpServlet {
         }
         HttpSession session = request.getSession();
         session.setAttribute("supervisor", supervisor);
-        // TODO: This is a temp path.
         response.sendRedirect(request.getContextPath() + "/interns-list");
     }
 
