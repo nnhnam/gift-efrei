@@ -43,7 +43,7 @@
         <c:forEach items="${interns}" var="intern">
             <tr>
                 <td>
-                    <a href="${pageContext.request.contextPath}/intern?id=${intern.internId}">🖊️</a>
+                    <a href="${pageContext.request.contextPath}/intern?id=${intern.internId}">✏️</a>
                 </td>
                 <td>
                     <select name="internGroup_${intern.internId}">
@@ -86,9 +86,14 @@
                            value="${intern.internshipByInternshipId.noteCom}"></td>
             </tr>
         </c:forEach>
+        <tr>
+            <td colspan="0">
+                <a href="${pageContext.request.contextPath}/intern">➕</a>
+            </td>
+        </tr>
     </table>
-    <button type="submit">Valider</button>
-    <a href="${pageContext.request.contextPath}/intern">Ajouter</a>
+    <button type="submit">💾</button>
+    <br/>
 </form>
 
 </body>

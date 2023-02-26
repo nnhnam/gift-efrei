@@ -71,9 +71,9 @@
                                    value="${intern.internshipByInternshipId.comment}"></label>
     </fieldset>
 
-    <button type="submit">Valider</button>
+    <button type="submit">💾</button>
 </form>
-
+<br/>
 <button onclick="deleteIntern(${intern.internId})">🗑️</button>
 
 </body>
