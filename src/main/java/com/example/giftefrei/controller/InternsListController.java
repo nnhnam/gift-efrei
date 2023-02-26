@@ -9,7 +9,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
-@WebServlet(name = "internsList", value = "/interns-list")
+@WebServlet(name = "internsList", value = "interns-list")
 public class InternsListController extends HttpServlet {
     @EJB
     private InternSB internSB;
@@ -28,6 +28,7 @@ public class InternsListController extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         SupervisorEntity supervisor = getSupervisorFromRequest(request);
         if (supervisor == null) {
+            response.sendError(HttpServletResponse.SC_FORBIDDEN);
             return;
         }
         List<InternEntity> interns = internSB.getInternsBySupervisorId(supervisor.getSupervisorId());
@@ -37,9 +38,10 @@ public class InternsListController extends HttpServlet {
         request.getRequestDispatcher("/WEB-INF/interns.jsp").forward(request, response);
     }
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         SupervisorEntity supervisor = getSupervisorFromRequest(request);
         if (supervisor == null) {
+            response.sendError(HttpServletResponse.SC_FORBIDDEN);
             return;
         }
         List<InternEntity> interns = internSB.getInternsBySupervisorId(supervisor.getSupervisorId());

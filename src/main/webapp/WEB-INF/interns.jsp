@@ -1,3 +1,5 @@
+<jsp:useBean id="interns" scope="request" type="java.util.List<com.example.giftefrei.model.InternEntity>"/>
+<jsp:useBean id="groups" scope="request" type="java.util.List<com.example.giftefrei.model.InternGroupEntity>"/>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page session="true" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -18,6 +20,7 @@
 <form name='myForm' action='interns-list' method="post">
     <table>
         <tr>
+            <th></th>
             <th>Groupe</th>
             <th>Nom</th>
             <th>Prénom</th>
@@ -39,6 +42,9 @@
         </tr>
         <c:forEach items="${interns}" var="intern">
             <tr>
+                <td>
+                    <a href="${pageContext.request.contextPath}/intern?id=${intern.internId}">🖊️</a>
+                </td>
                 <td>
                     <select name="internGroup_${intern.internId}">
                         <c:forEach items="${groups}" var="group">
@@ -82,6 +88,7 @@
         </c:forEach>
     </table>
     <button type="submit">Valider</button>
+    <a href="${pageContext.request.contextPath}/intern">Ajouter</a>
 </form>
 
 </body>
