@@ -36,7 +36,6 @@
             <th>Fin</th>
             <th>Entreprise</th>
             <th>Manager</th>
-            <th>Adresse</th>
             <th>Note tech</th>
             <th>Note com</th>
         </tr>
@@ -75,11 +74,20 @@
                 <td><input type="checkbox"
                            name="isVisitDone_${intern.internId}" ${intern.internshipByInternshipId.visitDone ? "checked" : ""}>
                 </td>
-                <td>${intern.internshipByInternshipId.startDate}</td>
-                <td>${intern.internshipByInternshipId.endDate}</td>
-                <td>${intern.internshipByInternshipId.companyByCompanyId.name}</td>
-                <td>${intern.internshipByInternshipId.managerName}</td>
-                <td>${intern.internshipByInternshipId.companyByCompanyId.address}</td>
+                <td><input type="date" name="startDate_${intern.internId}" value="${intern.internshipByInternshipId.startDate}"></td>
+                <td><input type="date" name="endDate_${intern.internId}" value="${intern.internshipByInternshipId.endDate}"></td>
+                <td>
+                    <a href="${pageContext.request.contextPath}/company?id=${intern.internshipByInternshipId.companyByCompanyId.companyId}">✏️</a>
+                    <select name="company_${intern.internId}">
+                        <c:forEach items="${companies}" var="company">
+                            <option value="${company.companyId}" ${company.companyId == intern.internshipByInternshipId.companyByCompanyId.companyId ? "selected" : ""}>
+                                    ${company.name}
+                            </option>
+                        </c:forEach>
+                    </select>
+                </td>
+                <td><input type="text" name="managerName_${intern.internId}"
+                           value="${intern.internshipByInternshipId.managerName}"></td>
                 <td><input type="number" name="noteTech_${intern.internId}" min="0" max="20" step="0.1"
                            value="${intern.internshipByInternshipId.noteTech}"></td>
                 <td><input type="number" name="noteCom_${intern.internId}" min="0" max="20" step="0.1"
@@ -94,6 +102,11 @@
     </table>
     <button type="submit">💾</button>
     <br/>
+    <tr>
+        <td colspan="0">
+            <a href="${pageContext.request.contextPath}/company">➕ Entreprise</a>
+        </td>
+    </tr>
 </form>
 
 </body>

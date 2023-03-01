@@ -73,7 +73,7 @@ public class InternController extends HttpServlet {
         }
         intern.getInternshipByInternshipId().setCompanyByCompanyId(companySB.getCompanyById(Integer.parseInt(request.getParameter("company"))));
         intern.getInternshipByInternshipId().setStartDate(Date.valueOf(request.getParameter("startDate")));
-        intern.getInternshipByInternshipId().setEndDate(Date.valueOf(request.getParameter("startDate")));
+        intern.getInternshipByInternshipId().setEndDate(Date.valueOf(request.getParameter("endDate")));
         intern.getInternshipByInternshipId().setManagerName(request.getParameter("managerName"));
         intern.getInternshipByInternshipId().setDescription(request.getParameter("description"));
         intern.getInternshipByInternshipId().setComment(request.getParameter("comment"));

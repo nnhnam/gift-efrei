@@ -1,11 +1,7 @@
 package com.example.giftefrei.model;
 
 import jakarta.ejb.Stateless;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
-import jakarta.persistence.Query;
-import org.mindrot.jbcrypt.BCrypt;
+import jakarta.persistence.*;
 
 import java.util.List;
 
@@ -15,7 +11,7 @@ public class InternSB {
     EntityManager em = entityManagerFactory.createEntityManager();
 
     public List<InternEntity> getInternsBySupervisorId(int supervisorId) {
-        Query q = em.createQuery("select i from InternEntity i where i.supervisorBySupervisorId.supervisorId = :supervisorId order by i.internId")
+        Query q = em.createNamedQuery("getInternsBySupervisorId")
                 .setParameter("supervisorId", supervisorId);
         return q.getResultList();
     }

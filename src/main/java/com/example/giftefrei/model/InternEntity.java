@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "intern", schema = "public", catalog = "giftefrei")
+@NamedQuery(name = "getInternsBySupervisorId", query = "select i from InternEntity i where i.supervisorBySupervisorId.supervisorId = :supervisorId order by i.internId")
 public class InternEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id

@@ -21,4 +21,10 @@ public class CompanySB {
         return em.find(CompanyEntity.class, id);
     }
 
+    public void updateCompany(CompanyEntity company) {
+        em.getTransaction().begin();
+        em.merge(company);
+        em.getTransaction().commit();
+    }
+
 }

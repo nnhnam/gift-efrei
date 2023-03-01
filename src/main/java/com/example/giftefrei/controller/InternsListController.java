@@ -1,6 +1,7 @@
 package com.example.giftefrei.controller;
 
 import java.io.*;
+import java.sql.Date;
 import java.util.List;
 
 import com.example.giftefrei.model.*;
@@ -16,6 +17,9 @@ public class InternsListController extends HttpServlet {
 
     @EJB
     private InternGroupSB internGroupSB;
+
+    @EJB
+    private CompanySB companySB;
 
     SupervisorEntity getSupervisorFromRequest(HttpServletRequest request) {
         HttpSession session = request.getSession();
@@ -33,8 +37,10 @@ public class InternsListController extends HttpServlet {
         }
         List<InternEntity> interns = internSB.getInternsBySupervisorId(supervisor.getSupervisorId());
         List<InternGroupEntity> groups = internGroupSB.getInternGroups();
+        List<CompanyEntity> companies = companySB.getCompanies();
         request.setAttribute("interns", interns);
         request.setAttribute("groups", groups);
+        request.setAttribute("companies", companies);
         request.getRequestDispatcher("/WEB-INF/interns.jsp").forward(request, response);
     }
 
@@ -58,6 +64,10 @@ public class InternsListController extends HttpServlet {
             intern.getInternshipByInternshipId().setOralDefenseDone(request.getParameter("isOralDefenseDone_" + id) != null);
             intern.getInternshipByInternshipId().setVisitPlanningDone(request.getParameter("isVisitPlanningDone_" + id) != null);
             intern.getInternshipByInternshipId().setVisitDone(request.getParameter("isVisitDone_" + id) != null);
+            intern.getInternshipByInternshipId().setStartDate(Date.valueOf(request.getParameter("startDate_" + id)));
+            intern.getInternshipByInternshipId().setEndDate(Date.valueOf(request.getParameter("endDate_" + id)));
+            intern.getInternshipByInternshipId().setCompanyByCompanyId(companySB.getCompanyById(Integer.parseInt(request.getParameter("company_" + id))));
+            intern.getInternshipByInternshipId().setManagerName(request.getParameter("managerName_" + id));
             intern.getInternshipByInternshipId().setNoteTech(request.getParameter("noteTech_" + id).isEmpty() ? null : Double.valueOf(request.getParameter("noteTech_" + id)));
             intern.getInternshipByInternshipId().setNoteCom(request.getParameter("noteCom_" + id).isEmpty() ? null : Double.valueOf(request.getParameter("noteCom_" + id)));
             internSB.updateIntern(intern);

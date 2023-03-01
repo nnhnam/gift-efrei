@@ -6,6 +6,7 @@ import java.util.Collection;
 
 @Entity
 @Table(name = "supervisor", schema = "public", catalog = "giftefrei")
+@NamedQuery(name = "authenticate", query = "select s from SupervisorEntity s where s.login = :login")
 public class SupervisorEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id

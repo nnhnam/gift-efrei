@@ -14,13 +14,8 @@ public class SupervisorSB {
     EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
     EntityManager em = entityManagerFactory.createEntityManager();
 
-    public List<SupervisorEntity> getSupervisors() {
-        Query q = em.createQuery("select s from SupervisorEntity s");
-        return q.getResultList();
-    }
-
     public SupervisorEntity authenticate(String login, String password) {
-        Query q = em.createQuery("select s from SupervisorEntity s where s.login = :login")
+        Query q = em.createNamedQuery("authenticate")
                 .setParameter("login", login);
         SupervisorEntity s = (SupervisorEntity) q.getResultList().stream().findFirst().orElse(null);
         if (s == null) {
