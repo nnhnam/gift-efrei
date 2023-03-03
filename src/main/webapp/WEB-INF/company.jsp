@@ -15,6 +15,7 @@
 </head>
 <body>
 <jsp:include page="header.jsp"/>
+<h2>Entreprise</h2>
 <form name='myForm' action='company' method="post">
     <c:if test="${company.companyId != 0}">
         <label>ID: <input type="text" name="companyId" readonly value="${company.companyId}"></label>

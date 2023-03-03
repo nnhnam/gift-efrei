@@ -16,11 +16,11 @@
 </head>
 <body>
 <jsp:include page="header.jsp"/>
-
+<h2>Etudiants</h2>
 <form name='myForm' action='interns-list' method="post">
     <table>
         <tr>
-            <th></th>
+            <th>Modifier</th>
             <th>Groupe</th>
             <th>Nom</th>
             <th>Prénom</th>
@@ -45,6 +45,7 @@
                     <a href="${pageContext.request.contextPath}/intern?id=${intern.internId}">✏️</a>
                 </td>
                 <td>
+                    <a href="${pageContext.request.contextPath}/intern-group?id=${intern.internGroupByGroupId.groupId}">✏️</a>
                     <select name="internGroup_${intern.internId}">
                         <c:forEach items="${groups}" var="group">
                             <option value="${group.groupId}" ${group.groupId == intern.internGroupByGroupId.groupId ? "selected" : ""}>
@@ -74,8 +75,10 @@
                 <td><input type="checkbox"
                            name="isVisitDone_${intern.internId}" ${intern.internshipByInternshipId.visitDone ? "checked" : ""}>
                 </td>
-                <td><input type="date" name="startDate_${intern.internId}" value="${intern.internshipByInternshipId.startDate}"></td>
-                <td><input type="date" name="endDate_${intern.internId}" value="${intern.internshipByInternshipId.endDate}"></td>
+                <td><input type="date" name="startDate_${intern.internId}"
+                           value="${intern.internshipByInternshipId.startDate}"></td>
+                <td><input type="date" name="endDate_${intern.internId}"
+                           value="${intern.internshipByInternshipId.endDate}"></td>
                 <td>
                     <a href="${pageContext.request.contextPath}/company?id=${intern.internshipByInternshipId.companyByCompanyId.companyId}">✏️</a>
                     <select name="company_${intern.internId}">
@@ -102,11 +105,9 @@
     </table>
     <button type="submit">💾</button>
     <br/>
-    <tr>
-        <td colspan="0">
-            <a href="${pageContext.request.contextPath}/company">➕ Entreprise</a>
-        </td>
-    </tr>
+
+    <a href="${pageContext.request.contextPath}/intern-group">➕ Groupe</a>
+    <a href="${pageContext.request.contextPath}/company">➕ Entreprise</a>
 </form>
 
 </body>

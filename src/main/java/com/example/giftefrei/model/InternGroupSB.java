@@ -21,4 +21,10 @@ public class InternGroupSB {
         return em.find(InternGroupEntity.class, id);
     }
 
+    public void updateInternGroup(InternGroupEntity internGroup) {
+        em.getTransaction().begin();
+        em.merge(internGroup);
+        em.getTransaction().commit();
+    }
+
 }

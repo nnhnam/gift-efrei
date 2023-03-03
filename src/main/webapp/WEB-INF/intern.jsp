@@ -31,22 +31,29 @@
 </script>
 <body>
 <jsp:include page="header.jsp"/>
+<h2>Etudiant</h2>
 <form name='myForm' action='intern' method="post">
-    <c:if test="${intern.internId != 0}">
-        <label>ID: <input type="text" name="internId" readonly value="${intern.internId}"></label>
-    </c:if>
-    <label>Nom: <input type="text" name="firstName" value="${intern.firstName}"></label>
-    <label>Prénom: <input type="text" name="lastName" value="${intern.lastName}"></label>
-    <label>
-        Groupe
-        <select name="internGroup">
-            <c:forEach items="${groups}" var="group">
-                <option value="${group.groupId}" ${group.groupId == intern.internGroupByGroupId.groupId ? "selected" : ""}>
-                        ${group.name}
-                </option>
-            </c:forEach>
-        </select>
-    </label>
+    <fieldset>
+        Etudiant
+        <c:if test="${intern.internId != 0}">
+            <label>ID: <input type="text" name="internId" readonly value="${intern.internId}"></label>
+        </c:if>
+        <label>Nom: <input type="text" name="firstName" value="${intern.firstName}"></label>
+        <label>Prénom: <input type="text" name="lastName" value="${intern.lastName}"></label>
+    </fieldset>
+    <fieldset>
+        <label>
+            Groupe
+            <select name="internGroup">
+                <c:forEach items="${groups}" var="group">
+                    <option value="${group.groupId}" ${group.groupId == intern.internGroupByGroupId.groupId ? "selected" : ""}>
+                            ${group.name}
+                    </option>
+                </c:forEach>
+            </select>
+            <a href="${pageContext.request.contextPath}/intern-group">➕ Groupe</a>
+        </label>
+    </fieldset>
     <fieldset>
         Entreprise
         <br/>
@@ -57,6 +64,7 @@
                 </option>
             </c:forEach>
         </select>
+        <a href="${pageContext.request.contextPath}/company">➕ Entreprise</a>
     </fieldset>
     <fieldset>
         Stage
