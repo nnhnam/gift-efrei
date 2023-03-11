@@ -34,6 +34,7 @@ public class LoginController extends HttpServlet {
         String enteredPassword = request.getParameter("pwdField");
         SupervisorEntity supervisor = supervisorSB.authenticate(enteredLogin, enteredPassword);
         if (supervisor == null) {
+            request.setAttribute("failure", true);
             request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
             return;
         }
