@@ -5,30 +5,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap"
+          rel="stylesheet">
     <title>JSP - Groupe</title>
 </head>
 <body>
 <jsp:include page="nav.jsp"/>
-<div class="flex justify-center py-24  dark:bg-gray-900">
-    <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+<div class="flex justify-center py-24 dark:bg-gray-900 wrapper">
+    <div class=" p-6 bg-white border card flex flex-col justify-evenly border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <a href="#">
             <h5 class="mb-2 text-3xl font-bold tracking-tight text- gray-900 dark:text-white">Add an intern group</h5>
         </a>
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Please write down the name of the intern group.</p>
         <form name='myForm' action='intern-group' method="post" class="flex flex-col gap-4">
             <c:if test="${internGroup.groupId != 0}">
-                <label>ID: <input type="text" name="internGroupId" readonly value="${internGroup.groupId}"></label>
+                <div class="relative">
+                    <input type="text" name="internGroupId" id="internGroupId" readonly value="${internGroup.groupId}"
+                           class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                           placeholder=" ">
+                    <label for="internGroupId"
+                           class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">ID</label>
+                </div>
             </c:if>
             <div class="relative">
-                <input type="text" name="name" id="name"  value="${internGroup.name}" class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
-                <label for="name" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Name</label>
+                <input type="text" name="name" id="name" value="${internGroup.name}"
+                       class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                       placeholder=" "/>
+                <label for="name"
+                       class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Name</label>
             </div>
 
-            <button type="submit"  class=" items-center w-full px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"> Add intern group👨‍💻</button>
+            <button type="submit"
+                    class=" items-center w-full px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                Add intern group👨‍💻
+            </button>
         </form>
     </div>
 </div>
@@ -64,7 +77,7 @@
 
     var themeToggleBtn = document.getElementById('theme-toggle');
 
-    themeToggleBtn.addEventListener('click', function() {
+    themeToggleBtn.addEventListener('click', function () {
 
         // toggle icons inside button
         themeToggleDarkIcon.classList.toggle('hidden');
@@ -94,9 +107,34 @@
     });
 </script>
 <style>
-    *{
+    * {
         font-family: 'Raleway', sans-serif;
+        scrollbar-width: thin;
+        scrollbar-color: #98c5e5;
     }
+
+    *::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    *::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background-color: #4375ff;
+        border-radius: 50px;
+        border: transparent;
+    }
+
+    .wrapper {
+        height: 80vh;
+    }
+
+    .card{
+      height: 20rem;
+    }
+
 </style>
 </body>
 </html>
