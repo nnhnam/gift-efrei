@@ -11,7 +11,7 @@
         <class>com.example.giftefrei.model.InternshipEntity</class>
         <class>com.example.giftefrei.model.SupervisorEntity</class>
         <properties>
-            <property name="eclipselink.jdbc.url" value="jdbc:postgresql://localhost:5432/giftefrei"/>
+            <property name="eclipselink.jdbc.url" value="jdbc:postgresql://db:5432/giftefrei"/>
             <property name="eclipselink.jdbc.driver" value="org.postgresql.Driver"/>
             <property name="eclipselink.jdbc.user" value="postgres"/>
             <property name="eclipselink.jdbc.password" value="postgres"/>
