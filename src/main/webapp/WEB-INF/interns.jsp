@@ -22,7 +22,7 @@
 <body>
 <jsp:include page="nav.jsp"/>
 <header class="flex justify-center items-center bg-white pt-8 dark:bg-gray-900">
-    <h1 class="text-5xl dark:text-white font-bold"> Vos Etudiants</h1>
+    <h1 class="text-5xl dark:text-white font-bold">Your students</h1>
 </header>
 <section class="dark:bg-gray-900 px-6 py-24 h-screen">
     <form name='myForm' action='interns-list' method="post">

@@ -17,7 +17,7 @@
 <div class="flex justify-center py-24 dark:bg-gray-900 wrapper">
     <div class=" p-6 bg-white border card flex flex-col justify-evenly border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <a href="#">
-            <h5 class="mb-2 text-3xl font-bold tracking-tight text- gray-900 dark:text-white">Add an intern group</h5>
+            <h5 class="mb-2 text-3xl font-bold tracking-tight text- gray-900 dark:text-white">${internGroup.groupId != 0 ? "Update" : "Add"} an intern group</h5>
         </a>
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Please write down the name of the intern group.</p>
         <form name='myForm' action='intern-group' method="post" class="flex flex-col gap-4">

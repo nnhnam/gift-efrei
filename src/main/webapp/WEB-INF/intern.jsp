@@ -39,7 +39,7 @@
 
 <div class="flex flex-col justify-center dark:bg-gray-900 p-24 h-screen">
     <div class="flex flex-col justify-center items-center bg-white pt-8 dark:bg-gray-900 my-8">
-        <h1 class="text-5xl dark:text-white font-bold">Add an intern 👨‍💻</h1>
+        <h1 class="text-5xl dark:text-white font-bold">${intern.internId != 0 ? "Update" : "Add"} an intern 👨‍💻</h1>
     </div>
     <form name='myForm' action='intern' method="post"
           class="p-24 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">

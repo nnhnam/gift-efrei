@@ -17,7 +17,7 @@
 <div class="flex justify-center py-24 wrapper dark:bg-gray-900">
     <div class="max-w-sm p-6 card bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <a href="#">
-            <h5 class="mb-2 text-3xl font-bold tracking-tight text- gray-900 dark:text-white">Add a Company</h5>
+            <h5 class="mb-2 text-3xl font-bold tracking-tight text- gray-900 dark:text-white">${company.companyId != 0 ? "Update" : "Add"} a Company</h5>
         </a>
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Please write down the name and the address of the
             company.</p>
