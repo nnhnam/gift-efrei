@@ -79,7 +79,7 @@
                             </label>
                             <br/>
 
-                            <c:if test="${failure}"><p class="mt-2 text-gray-500 dark:text-gray-300">Incorrect credentials</p></c:if>
+                            <c:if test="${failure}"><p class="mt-2 text-red-500">Incorrect credentials</p></c:if>
                             <input type='submit' name='action' value='Sign In'  class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-blue-900 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50">
                         </form>
                     </fieldset>
