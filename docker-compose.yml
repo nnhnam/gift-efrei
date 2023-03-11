@@ -22,16 +22,6 @@ services:
       PGADMIN_DEFAULT_PASSWORD: privatepassword
     volumes:
       - pgadmin-data:/var/lib/pgadmin
-  giftefrei_app:
-    build: .
-    container_name: giftefrei_app
-    ports:
-      - "8080:8080"
-      - "9990:9990"
-    depends_on:
-      - db
-    links:
-      - db
 
 volumes:
   local_pgdata:
