@@ -6,7 +6,6 @@ import jakarta.servlet.http.*;
 
 import java.io.IOException;
 
-@WebFilter("/*")
 public class LoginFilter implements Filter {
 
     @Override
