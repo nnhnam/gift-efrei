@@ -71,5 +71,6 @@
                 <version>3.3.2</version>
             </plugin>
         </plugins>
+        <finalName>giftefrei</finalName>
     </build>
 </project>
